@@ -11,59 +11,55 @@
 	let value = $state([today(getLocalTimeZone())]);
 </script>
 
-<main class="min-h-screen pb-20 md:ml-64 md:pb-0">
-	<div class="container px-4 py-6">
-		<div class="mb-8 space-y-4">
-			<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, Erika! 🌸</h1>
-			<p class="text-muted-foreground">Track your journey with care and confidence</p>
-		</div>
-
-		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-			<Card class="p-6">
-				<h2 class="mb-4 font-semibold">Today's Progress</h2>
-				<div class="space-y-4">
-					<div>
-						<div class="mb-2 flex justify-between text-sm">
-							<span>Estradiol</span>
-							<span>1/2 taken</span>
-						</div>
-						<Progress value={50} class="h-2" />
-					</div>
-					<div>
-						<div class="mb-2 flex justify-between text-sm">
-							<span>Spironolactone</span>
-							<span>2/2 taken</span>
-						</div>
-						<Progress value={100} class="h-2" />
-					</div>
-				</div>
-			</Card>
-
-			<!-- {/* Next Dose */} -->
-			<Card class="p-6">
-				<h2 class="mb-4 font-semibold">Next Dose</h2>
-				<div class="flex items-center space-x-4">
-					<div class="rounded-full bg-pink-100 p-3 dark:bg-pink-900">
-						<Pill class="h-6 w-6 text-pink-500" />
-					</div>
-					<div>
-						<p class="font-medium">Estradiol 2mg</p>
-						<p class="text-muted-foreground text-sm">In 4 hours</p>
-					</div>
-				</div>
-			</Card>
-
-			<!-- {/* Streak */} -->
-			<Card class="p-6">
-				<h2 class="mb-4 font-semibold">Streak</h2>
-				<div class="space-x-4 text-center">
-					<div>
-						<p class="text-2xl font-bold">14 Days</p>
-						<p class="text-muted-foreground text-sm">Perfect streak!</p>
-					</div>
-					<Calendar type="multiple" bind:value class="w-full rounded-md border shadow" />
-				</div>
-			</Card>
-		</div>
+<div class="container px-4 py-6">
+	<div class="mb-8 space-y-4">
+		<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, Erika! 🌸</h1>
+		<p class="text-muted-foreground">Track your journey with care and confidence</p>
 	</div>
-</main>
+
+	<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+		<Card class="p-6">
+			<h2 class="mb-4 font-semibold">Today's Progress</h2>
+			<div class="space-y-4">
+				<div>
+					<div class="mb-2 flex justify-between text-sm">
+						<span>Estradiol</span>
+						<span>1/2 taken</span>
+					</div>
+					<Progress value={50} class="h-2" />
+				</div>
+				<div>
+					<div class="mb-2 flex justify-between text-sm">
+						<span>Spironolactone</span>
+						<span>2/2 taken</span>
+					</div>
+					<Progress value={100} class="h-2" />
+				</div>
+			</div>
+		</Card>
+
+		<Card class="p-6">
+			<h2 class="mb-4 font-semibold">Next Dose</h2>
+			<div class="flex items-center space-x-4">
+				<div class="rounded-full bg-pink-100 p-3 dark:bg-pink-900">
+					<Pill class="h-6 w-6 text-pink-500" />
+				</div>
+				<div>
+					<p class="font-medium">Estradiol 2mg</p>
+					<p class="text-muted-foreground text-sm">In 4 hours</p>
+				</div>
+			</div>
+		</Card>
+
+		<Card class="p-6">
+			<h2 class="mb-4 font-semibold">Streak</h2>
+			<div class="space-x-4 text-center">
+				<div>
+					<p class="text-2xl font-bold">14 Days</p>
+					<p class="text-muted-foreground text-sm">Perfect streak!</p>
+				</div>
+				<Calendar type="multiple" bind:value class="w-full rounded-md border shadow-sm" />
+			</div>
+		</Card>
+	</div>
+</div>

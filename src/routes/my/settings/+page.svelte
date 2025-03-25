@@ -4,4 +4,6 @@
 	let { data }: { data: PageData } = $props();
 </script>
 
-Settings
+<div class="p-4">
+	<h2 class="text-2xl font-semibold">Settings</h2>
+</div>

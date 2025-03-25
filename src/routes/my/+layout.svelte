@@ -1,39 +1,43 @@
 <script lang="ts" module>
-	import { Button } from '$lib/components/ui/button';
-	import { Home, Calendar, User, Settings, Pill, Clock, X, Github } from '@lucide/svelte';
+	import { Button } from '$ui/button';
+	import { Home, Calendar, User, Settings, Pill, Clock, X, Github, Menu } from '@lucide/svelte';
 	import { page } from '$app/state';
-	import { cn } from '$lib/utils/shadcn';
+	import { cn } from '$utils/shadcn';
+	import * as Sidebar from '$ui/sidebar';
+	import type { NavigationItem } from '$lib/components/nav/sidebar-types';
 
-	const navigation = [
+	const navigation: NavigationItem[] = [
 		{ name: 'Home', icon: Home, id: 'home', href: '/my/dashboard' },
 		{ name: 'Medications', icon: Pill, id: 'medications', href: '/my/medications' },
 		{ name: 'Schedule', icon: Calendar, id: 'schedule', href: '/my/schedule' },
 		{ name: 'Profile', icon: User, id: 'profile', href: '/my/profile' },
 		{ name: 'Settings', icon: Settings, id: 'settings', href: '/my/settings' }
-	] as const;
-
-	// let activeTab = $derived(page.url.pathname);
+	];
 </script>
 
 <script lang="ts">
-	// let activeTab: (typeof navigation)[number]['id'] = $state('home');
+	import MainSidebar from '$components/nav/sidebar.svelte';
 
 	let { children } = $props();
-
-	$inspect({ navigation });
 </script>
 
-<div
-	class="min-h-screen bg-gradient-to-b from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950"
+<Sidebar.Provider
+	class="min-h-screen bg-linear-to-b from-pink-50 to-purple-50 dark:from-pink-950 dark:to-purple-950"
 >
 	<aside
-		class="fixed left-0 top-0 hidden h-screen w-64 flex-col border-r bg-white/80 backdrop-blur-xl md:flex dark:bg-gray-950/80"
+		class={cn(
+			'fixed top-0 left-0 m-2 hidden h-full w-64 flex-col rounded-md border-r bg-white/80 backdrop-blur-xl md:flex dark:bg-gray-950/80'
+		)}
 	>
 		<div class="flex h-14 items-center border-b px-4">
 			<Clock class="h-6 w-6 text-pink-500" />
-			<span class="ml-2 text-lg font-semibold">
+			<span class="font-lighter ml-2 text-lg">
 				<span class="text-pink-500">tea</span><span>Time</span>
+				<span class="text-muted-foreground align-middle text-xs">beta</span>
 			</span>
+			<Button variant="ghost" class="ml-auto">
+				<Menu class="h-5 w-5" />
+			</Button>
 		</div>
 		<nav class="flex-1 space-y-2 p-4">
 			{#each navigation as item}
@@ -47,9 +51,8 @@
 				</Button>
 			{/each}
 		</nav>
-		<!-- ad block -->
 		<div class="mb-2 flex flex-col items-center gap-2 px-2">
-			<div class="bg-muted text-muted-foreground flex-1 rounded border p-4 text-sm shadow-sm">
+			<div class="bg-muted text-muted-foreground flex-1 rounded border p-4 text-sm shadow-xs">
 				<p class="w-full text-xs">
 					We choose not to run any ads, but please consider donating to
 					<a
@@ -64,10 +67,9 @@
 			</div>
 
 			<div
-				class="bg-muted text-muted-foreground relative flex-1 rounded border p-4 text-xs shadow-sm"
+				class="bg-muted text-muted-foreground relative flex-1 rounded border p-4 text-xs shadow-xs"
 			>
-				<!-- close button -->
-				<div class="absolute right-0 top-0 flex justify-end p-2">
+				<div class="absolute top-0 right-0 flex justify-end p-2">
 					<Button variant="ghost" size="icon" class="h-4 w-4 p-0">
 						<X class="h-4 w-4" />
 					</Button>
@@ -83,17 +85,14 @@
 				to help keep this site running and to hide these "ads"
 			</div>
 		</div>
-
-		<!-- footer -->
 		<div class="flex h-14 items-center border-t px-4">
 			<div class="text-muted-foreground flex-1 text-sm">
 				<p class=" text-xs">© {new Date().getFullYear()} Erika Cudd</p>
-				<p class=" text-wrap text-xs">
+				<p class=" text-xs text-wrap">
 					Licensed under
 					<a href="https://www.gnu.org/licenses/agpl-3.0.en.html" target="_blank"> AGPL-3.0 </a>
 				</p>
 			</div>
-			<!-- footer links -->
 			<div class="flex items-center space-x-2">
 				<Button variant="ghost" size="icon" class="h-4 w-4 p-0">
 					<Github class="h-4 w-4" />
@@ -110,10 +109,13 @@
 		</div>
 	</aside>
 
-	{@render children()}
+	<MainSidebar items={navigation} />
 
+	<Sidebar.Inset>
+		{@render children()}
+	</Sidebar.Inset>
 	<nav
-		class="fixed bottom-0 left-0 right-0 m-2 overflow-hidden rounded-full border bg-white/80 shadow-lg backdrop-blur-xl md:hidden dark:bg-gray-950/80"
+		class="bg-sidebar/60 fixed right-0 bottom-0 left-0 m-1 overflow-hidden rounded-md border shadow-lg backdrop-blur-xl md:hidden"
 	>
 		<div class="grid h-16 grid-cols-5">
 			{#each navigation as item}
@@ -122,7 +124,7 @@
 					variant="ghost"
 					class={cn(
 						'flex h-full flex-col items-center justify-center rounded-none',
-						isActive && 'bg-pink-50 text-pink-500 dark:bg-pink-950'
+						isActive && 'bg-secondary/90 text-pink-500 dark:bg-pink-950'
 					)}
 					href={item.href}
 				>
@@ -134,4 +136,4 @@
 			{/each}
 		</div>
 	</nav>
-</div>
+</Sidebar.Provider>
