@@ -17,24 +17,32 @@ export default ts.config(
 	{
 		rules: {
 			'no-unused-vars': 'off',
-			'@typescript-eslint/no-unused-vars': 'warn'
-		}
+			'@typescript-eslint/no-empty-object-type': 'off',
+			'@typescript-eslint/no-unused-vars': [
+				'warn',
+				{
+					argsIgnorePattern: '^_',
+					ignoreRestSiblings: true,
+					destructuredArrayIgnorePattern: '^_',
+				},
+			],
+		},
 	},
 	{
 		languageOptions: {
 			globals: {
 				...globals.browser,
-				...globals.node
-			}
-		}
+				...globals.node,
+			},
+		},
 	},
 	{
 		files: ['**/*.svelte'],
 
 		languageOptions: {
 			parserOptions: {
-				parser: ts.parser
-			}
-		}
-	}
+				parser: ts.parser,
+			},
+		},
+	},
 );

@@ -11,15 +11,9 @@
 <script lang="ts">
 	import type { ComponentProps } from 'svelte';
 
-	import {
-		Clock,
-		// X,
-		// Github,
-		Menu,
-		X
-	} from '@lucide/svelte';
+	import { Clock, Menu, X } from '@lucide/svelte';
 
-	import { Button, buttonVariants } from '$ui/button';
+	import { Button } from '$ui/button';
 	import * as Sidebar from '$ui/sidebar';
 
 	import NavMain from './sidebar-nav.svelte';
@@ -68,53 +62,20 @@
 				</Button>
 			{/snippet}
 		</Sidebar.MenuButton>
-		<!-- <Sidebar.MenuButton
-			size="lg"
-			class="data-[state=open]:bg-sidebar-accent data-[state=open]:text-sidebar-accent-foreground flex"
-			onclick={() => {
-				sidebar.toggle();
-			}}
-		>
-			{#if !sidebar.open}
-				<div class="flex w-full items-center justify-center text-center">
-					<Menu class={cn('m-0 size-5')} />
-				</div>
-			{/if}
-			<div class="flex flex-1 truncate text-left text-sm leading-tight">
-				<Clock class="inline h-6 w-6 text-pink-500 group-data-[collapsible=icon]:hidden" />
-				<span class="font-lighter ml-2 inline truncate text-lg">
-					<span class="truncate text-pink-500">tea</span><span>Time</span>
-					<span class="text-muted-foreground align-middle text-xs">beta</span>
-				</span>
-			</div>
-			 <Button variant="ghost" size="icon" class="ml-auto">
-				<Menu class="h-5 w-5" />
-				</Button> 
-			{#if sidebar.open}
-				<div class=" items-center justify-center text-center">
-					<X class={cn('mx-auto size-4')} />
-				</div>
-			{/if}
-			<ChevronsUpDown class="ml-auto size-4" />
-		</Sidebar.MenuButton> 
-		 <div class="relative">
-					<Sidebar.Trigger {...props} size="icon" variant="ghost" class="mr-auto">
-						<Menu class="h-5 w-5" />
-					</Sidebar.Trigger>
-					<a href="/my/dashboard" class={cn('0')}>
-						<Clock class="inline h-6 w-6 text-pink-500" />
-						<span class="font-lighter ml-2 text-lg">
-							<span class="text-pink-500">tea</span><span>Time</span>
-							<span class="text-muted-foreground align-middle text-xs">beta</span>
-						</span>
-					</a>
-				</div> -->
 	</Sidebar.Header>
 	<Sidebar.Content>
 		<NavMain {items} />
 	</Sidebar.Content>
 	<Sidebar.Footer>
-		<!-- <NavUser user={data.user} /> -->
+		<div class="bg-muted text-muted-foreground flex-1 rounded border p-4 text-sm shadow-xs">
+			<p class="w-full text-xs">
+				We choose not to run any ads, but please consider donating to
+				<a href="https://www.thetrevorproject.org/" target="_blank" class="text-pink-500 underline">
+					The Trevor Project
+				</a>
+				to support queer youth.
+			</p>
+		</div>
 	</Sidebar.Footer>
 	<Sidebar.Rail />
 </Sidebar.Root>

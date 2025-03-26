@@ -60,7 +60,13 @@
 	"dependencies": {
 		"@fontsource-variable/inter": "^5.2.5",
 		"@fontsource-variable/montserrat": "^5.2.5",
+		"@rocicorp/zero": "^0.17.2025031904",
+		"@tanstack/svelte-query": "^5.69.0",
+		"better-auth": "^1.2.4",
 		"better-sqlite3": "^11.8.0",
-		"drizzle-orm": "^0.38.4"
+		"drizzle-orm": "^0.40.0",
+		"drizzle-zero": "^0.5.4",
+		"postgres": "^3.4.5",
+		"zero-svelte": "^0.2.0"
 	}
 }

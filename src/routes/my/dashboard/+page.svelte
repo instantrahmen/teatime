@@ -13,7 +13,9 @@
 
 <div class="container px-4 py-6">
 	<div class="mb-8 space-y-4">
-		<h1 class="text-2xl font-bold text-gray-900 dark:text-white">Welcome back, Erika! 🌸</h1>
+		<h2 class="text-2xl font-bold text-gray-900 dark:text-white">
+			Welcome back, {data.user.name}! 🌸
+		</h2>
 		<p class="text-muted-foreground">Track your journey with care and confidence</p>
 	</div>
 

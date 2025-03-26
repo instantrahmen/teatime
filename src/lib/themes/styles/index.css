@@ -1,0 +1,12 @@
+@import './default.css';
+@import './coffee.css';
+@import './pink.css';
+@import './rosepine.css';
+@import './blue.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+}

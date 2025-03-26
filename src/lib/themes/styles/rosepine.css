@@ -1,0 +1,63 @@
+@layer base {
+	*[data-theme='rose-pine'] {
+		/* Light Theme (Rose Pine Dawn) */
+		--background: 32 57% 95%; /* Base: #faf4ed */
+		--foreground: 248 19% 40%; /* Text: #575279 */
+		--card: 35 100% 98%; /* Surface: #fffaf3 */
+		--card-foreground: 248 19% 40%;
+		--popover: 35 100% 98%;
+		--popover-foreground: 248 19% 40%;
+		--primary: 343 35% 55%; /* Love: #b4637a */
+		--primary-foreground: 32 57% 95%;
+		--secondary: 33 43% 91%; /* Overlay: #f2e9e1 */
+		--secondary-foreground: 343 35% 55%;
+		--muted: 257 9% 61%; /* Muted: #9893a5 */
+		--muted-foreground: 248 19% 50%;
+		--accent: 33 43% 91%;
+		--accent-foreground: 343 35% 55%;
+		--destructive: 0 70% 50%;
+		--destructive-foreground: 32 57% 95%;
+		--border: 248 12% 52%; /* Subtle: #797593 */
+		--input: 248 12% 52%;
+		--ring: 343 35% 55%;
+		--sidebar: 35 100% 98%;
+		--sidebar-foreground: 248 19% 40%;
+		--sidebar-primary: 343 35% 55%;
+		--sidebar-primary-foreground: 32 57% 95%;
+		--sidebar-accent: 33 43% 91%;
+		--sidebar-accent-foreground: 343 35% 55%;
+		--sidebar-border: 248 12% 52%;
+		--sidebar-ring: 343 35% 55%;
+
+		/* Dark Theme (Rose Pine Moon) */
+		&.dark {
+			--background: 246 24% 17%; /* Base: #232136 */
+			--foreground: 245 50% 91%; /* Text: #e0def4 */
+			--card: 248 24% 20%; /* Surface: #2a273f */
+			--card-foreground: 245 50% 91%;
+			--popover: 248 24% 20%;
+			--popover-foreground: 245 50% 91%;
+			--primary: 343 76% 68%; /* Love: #eb6f92 */
+			--primary-foreground: 246 24% 17%;
+			--secondary: 248 21% 26%; /* Overlay: #393552 */
+			--secondary-foreground: 245 50% 91%;
+			--muted: 249 12% 47%; /* Muted: #6e6a86 */
+			--muted-foreground: 245 50% 70%;
+			--accent: 248 21% 26%;
+			--accent-foreground: 245 50% 91%;
+			--destructive: 0 70% 45%;
+			--destructive-foreground: 245 50% 91%;
+			--border: 248 15% 61%; /* Subtle: #908caa */
+			--input: 248 15% 61%;
+			--ring: 343 76% 68%;
+			--sidebar: 248 24% 20%;
+			--sidebar-foreground: 245 50% 91%;
+			--sidebar-primary: 343 76% 68%;
+			--sidebar-primary-foreground: 246 24% 17%;
+			--sidebar-accent: 248 21% 26%;
+			--sidebar-accent-foreground: 245 50% 91%;
+			--sidebar-border: 248 15% 61%;
+			--sidebar-ring: 343 76% 68%;
+		}
+	}
+}
