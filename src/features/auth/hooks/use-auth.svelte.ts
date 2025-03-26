@@ -2,7 +2,7 @@ import { authClient } from '$features/auth/client';
 import { toReadable } from '$utils/reactive-query-args.svelte';
 import { createQuery, queryOptions } from '@tanstack/svelte-query';
 
-const useAuth = () =>
+export const useAuth = () =>
 	createQuery(
 		toReadable(() =>
 			queryOptions({
@@ -17,4 +17,3 @@ const useAuth = () =>
 			}),
 		),
 	);
-export default useAuth;

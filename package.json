@@ -29,6 +29,7 @@
 		"@tailwindcss/postcss": "^4.0.15",
 		"@tailwindcss/typography": "^0.5.16",
 		"@types/better-sqlite3": "^7.6.12",
+		"@types/glob-to-regexp": "^0.4.4",
 		"bits-ui": "^1.3.13",
 		"clsx": "^2.1.1",
 		"drizzle-kit": "^0.30.2",
@@ -66,6 +67,7 @@
 		"better-sqlite3": "^11.8.0",
 		"drizzle-orm": "^0.40.0",
 		"drizzle-zero": "^0.5.4",
+		"glob-to-regexp": "^0.4.1",
 		"postgres": "^3.4.5",
 		"zero-svelte": "^0.2.0"
 	}
