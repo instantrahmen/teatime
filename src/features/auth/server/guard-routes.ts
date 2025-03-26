@@ -20,14 +20,10 @@ export const guardRoute = (route: string, event: RequestEvent, redirectTo: strin
 	const pathname = ensureTrailingSlash(event.url.pathname);
 	const regex = globToRegex(route);
 
-	if (regex.test(event.url.pathname)) {
+	if (regex.test(pathname)) {
 		if (!event.locals.auth?.user) {
 			throw redirect(303, redirectTo);
-		} else {
-			console.log('authenticated', pathname, route);
 		}
-	} else {
-		console.log('not guarded', pathname, route);
 	}
 };
 

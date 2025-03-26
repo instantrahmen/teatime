@@ -23,7 +23,7 @@
 			<h2 class="text-2xl font-bold text-gray-900 dark:text-white">
 				Welcome back, {$sessionQuery.data?.user.name}! 🌸
 			</h2>
-			<p class="text-muted-foreground">Track your journey with care and confidence</p>
+			<p class="text-muted-foreground">Here's an overview of your progress</p>
 		</div>
 
 		<div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3">

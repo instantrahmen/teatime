@@ -1,4 +1,5 @@
 <script lang="ts">
+	import { goto } from '$app/navigation';
 	import Form, { type FormData } from '$components/forms/form.svelte';
 
 	import { authClient } from '../client';
@@ -51,6 +52,10 @@
 
 		if (error?.message) {
 			loginData.errors.submit = error.message;
+		}
+
+		if (data?.token && data?.user) {
+			goto('/my/dashboard');
 		}
 	};
 </script>
